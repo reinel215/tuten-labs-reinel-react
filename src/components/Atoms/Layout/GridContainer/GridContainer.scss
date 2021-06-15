@@ -1,0 +1,11 @@
+.grid-container {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+}
+
+
+.direction-column{
+    flex-direction: column;
+}

@@ -2,7 +2,7 @@ import React from 'react'
 import InputLabel from '../../Atoms/Texts/InputLabel/inputLabel';
 import InputPassword from '../../Atoms/Inputs/InputPassword/InputPassword';
 
-const InputPasswordLabel = ({label, ...props}) => {
+const InputPasswordLabel = React.forwardRef(({ label, ...props }, ref) => {
 
     return (
         <div style={{ textAlign: "left" }} >
@@ -12,6 +12,10 @@ const InputPasswordLabel = ({label, ...props}) => {
 
         </div>
     )
-}
+
+})
+
+
+
 
 export default InputPasswordLabel

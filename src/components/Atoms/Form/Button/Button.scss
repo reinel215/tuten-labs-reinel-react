@@ -1,0 +1,19 @@
+.button {
+    padding: 10px;
+    background-color: #102e91;
+    color: white;
+    border: none;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    font-size: 0.9em;
+    cursor: pointer;
+    text-transform: uppercase;
+    border-radius: 5px;
+}
+
+
+.button[disabled] {
+    cursor: default;
+    background-color: #3f4f83;
+}

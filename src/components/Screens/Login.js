@@ -1,6 +1,6 @@
 import React from 'react'
 import { useForm } from 'react-hook-form';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import validationRegister from '../../utils/validationRegister';
 import * as userActions from '../../store/user/actions';
 
@@ -8,29 +8,35 @@ import * as userActions from '../../store/user/actions';
 //molecules
 import InputTextLabel from '../Molecules/InputTextLabel/InputTextLabel';
 import InputPasswordLabel from '../Molecules/InputPassowordLabel/InputPasswordLabel';
+import FormWrapper from '../Atoms/Form/FormWrapper/FormWrapper';
+import CenterContent from '../Atoms/Layout/CenterContent/CenterContent';
+import Paper from '../Atoms/Paper/Paper';
+import PaperTitle from '../Atoms/Paper/PaperTitle/PaperTitle';
+import GridContainer from '../Atoms/Layout/GridContainer/GridContainer';
+import Button from '../Atoms/Form/Button/Button';
 
 const Login = () => {
 
     const { register, handleSubmit, formState } = useForm()
     const dispatch = useDispatch();
+    const user = useSelector(state => state.user);
 
     console.log(formState.errors);
 
     const login = (data) => {
-        console.log(data);
         dispatch(userActions.login(data))
     }
 
 
     return (
-        <div style={{ display: 'flex', width: "100%", height: "100%", justifyContent: "center", alignItems: "center" }} >
-            <div style={{ borderRadius: 20, boxShadow: "0px 0px 5px 2px rgba(0,0,0,0.2)", padding: 20, textAlign: "center", backgroundColor:"#ffffff" }} >
+        <CenterContent>
+            <Paper style={{width : "60%" , minWidth : 300}} >
 
-                <h3>Inicio de sesion</h3>
-                <form onSubmit={handleSubmit(login)} >
+                <PaperTitle>Inicio de sesion</PaperTitle>
 
-                    <div style={{ display: "flex", flexDirection: "column", gap: 20, padding: 20 }} >
+                <FormWrapper onSubmit={handleSubmit(login)} >
 
+                    <GridContainer column style={{ gap: 20, padding: 20 }} >
                         <InputTextLabel
                             {...register("email", validationRegister({ required: true }))}
                             label="Email"
@@ -43,14 +49,16 @@ const Login = () => {
                             placeholder="********"
                         />
 
-                        <button type="submit" style={{ padding: 10, fontWeight: "bold" }} >Signin</button>
+                        <Button type="submit" disabled={user.loading} >
+                            { user.loading ? "Iniciando..." : "Signin"}
+                        </Button>
 
-                    </div>
+                    </GridContainer>
 
+                </FormWrapper>
 
-                </form>
-            </div>
-        </div>
+            </Paper>
+        </CenterContent>
     )
 }
 
