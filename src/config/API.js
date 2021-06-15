@@ -5,5 +5,6 @@ const API = axios.create({
     baseURL: API_URL,
 });
 
+API.defaults.headers.common['Accept'] = "application/json";
 
 export default API;
