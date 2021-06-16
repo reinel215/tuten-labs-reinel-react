@@ -13,11 +13,12 @@ import GridItem from '../../Atoms/Layout/GridItem/GridItem';
 import InputText from '../../Atoms/Inputs/InputText/InputText';
 import CenterContent from '../../Atoms/Layout/CenterContent/CenterContent';
 import Button from '../../Atoms/Form/Button/Button';
-
+import ErrorWrapper from '../../Atoms/Errors/ErrorWrapper';
+import ErrorMessage from '../../Atoms/Texts/ErrorMessage/ErrorMessage';
 
 const BookingSearch = () => {
 
-    const { register, handleSubmit } = useForm();
+    const { register, handleSubmit, formState } = useForm();
 
     const dispatch = useDispatch();
     const booking = useSelector(state => state.booking);
@@ -26,6 +27,9 @@ const BookingSearch = () => {
     const searchBookings = (data) => {
         dispatch(bookingActions.getBookings({ email: data.email, adminEmail: user.user.email, current: true }));
     }
+
+
+    console.log(formState.errors);
 
     return (
         <Paper style={{ width: "60%", minWidth: 300 }} >
@@ -54,6 +58,30 @@ const BookingSearch = () => {
                 </GridContainer>
 
             </FormWrapper>
+
+            <GridContainer style={{ justifyContent: "center" }} >
+                {
+                    formState.errors.email || booking.error ?
+                        <ErrorWrapper>
+                            {
+                                formState.errors.email ?
+                                    <ErrorMessage>{formState.errors.email.message}</ErrorMessage>
+                                    :
+                                    null
+                            }
+
+                            {
+                                booking.error ?
+                                    <ErrorMessage>*Usuario o contraseña incorrectos</ErrorMessage>
+                                    :
+                                    null
+                            }
+                        </ErrorWrapper>
+                        :
+                        null
+
+                }
+            </GridContainer>
 
         </Paper>
     )
