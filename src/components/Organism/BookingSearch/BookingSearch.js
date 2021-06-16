@@ -36,14 +36,14 @@ const BookingSearch = () => {
 
                 <GridContainer style={{ padding: 10 }} >
 
-                    <GridItem col={8}>
+                    <GridItem col={8} style={{ padding: 4 }}>
                         <InputText
                             {...register("email", validationRegister({ required: true, email: true, name: "Email" }))}
                             placeholder="example@email.com"
                         />
                     </GridItem>
 
-                    <GridItem col={4} >
+                    <GridItem col={4} style={{ padding: 4 }} >
                         <CenterContent>
                             <Button type="submit" disabled={booking.loading} >
                                 {booking.loading ? "searching..." : "search"}
