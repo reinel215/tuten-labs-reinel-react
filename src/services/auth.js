@@ -13,5 +13,7 @@ export const login = async  ({ email, password }) => {
     } 
     );
 
+    API.defaults.headers.common['Token'] = response.data.sessionTokenBck;
+
     return response.data;
 }

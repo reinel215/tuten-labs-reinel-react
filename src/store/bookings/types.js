@@ -1,0 +1,3 @@
+export const BOOKING_START = 'BOOKING_START';
+export const BOOKING_ERROR = 'BOOKING_ERROR';
+export const SET_BOOKINGS = 'SET_BOOKINGS';

@@ -1,0 +1,60 @@
+.grid-item {
+    box-sizing: border-box;
+}
+
+.col-12 {
+    flex-basis: 100%;
+    min-width: 100%;
+    flex-grow: 1;
+}
+
+.col-8 {
+    flex-basis: 66%;
+    min-width: 66%;
+    flex-grow: 1;
+}
+
+.col-6 {
+    flex-basis: 50%;
+    min-width: 50%;
+    flex-grow: 1;
+}
+
+.col-4 {
+    flex-basis: 33%;
+    min-width: 33%;
+    flex-grow: 1;
+}
+
+.col-3 {
+    flex-basis: 25%;
+    min-width: 25%;
+    flex-grow: 1;
+}
+
+@media (max-width: 576px) {
+
+    .col-8 {
+        flex-basis: 100%;
+        min-width: 100%;
+        flex-grow: 1;
+    }
+
+    .col-6 {
+        flex-basis: 100%;
+        min-width: 100%;
+        flex-grow: 1;
+    }
+
+    .col-4 {
+        flex-basis: 100%;
+        min-width: 100%;
+        flex-grow: 1;
+    }
+
+    .col-3 {
+        flex-basis: 100%;
+        min-width: 100%;
+        flex-grow: 1;
+    }
+}

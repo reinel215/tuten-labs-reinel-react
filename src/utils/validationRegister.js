@@ -1,5 +1,5 @@
 
-const validationRegister = ({ required = false, minLength = false, maxLength = false, email = false, discount = false, ipAddress = false, portNumber = false}) => {
+const validationRegister = ({ name = "" ,required = false, minLength = false, maxLength = false, email = false}) => {
 
 
     let register = {};
@@ -7,7 +7,7 @@ const validationRegister = ({ required = false, minLength = false, maxLength = f
     if (required) {
         register = {
             ...register,
-            required : "Este campo no puede estar vacío"
+            required : `El cambo ${name} no puede estar vacio`
         }
     }
 

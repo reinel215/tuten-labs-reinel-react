@@ -2,7 +2,8 @@ import React from 'react';
 
 import "./InputText.scss";
 
-const InputText = ({...props }) => {
+const InputText = React.forwardRef(({ ...props }, ref) => {
+
     return (
 
         <input
@@ -12,7 +13,9 @@ const InputText = ({...props }) => {
         />
 
     )
-}
+
+})
+
 
 
 export default InputText;
