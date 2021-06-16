@@ -1,3 +1,6 @@
+import jsCookie from 'js-cookie';
+import cookie from '../../config/COOKIE_NAME';
+
 import {
     USER_START,
     USER_ERROR,
@@ -6,7 +9,9 @@ import {
 
 const initialState = {
     loading: false,
-    user: null,
+    user: jsCookie.getJSON(cookie) ?
+    jsCookie.getJSON(cookie) :
+    null,
     error: null
 }
 

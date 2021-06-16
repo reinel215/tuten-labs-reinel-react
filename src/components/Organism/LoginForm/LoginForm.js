@@ -38,8 +38,6 @@ export const LoginForm = () => {
     }
 
 
-    console.log(user);
-
 
     return (
         <CenterContent>
@@ -72,20 +70,26 @@ export const LoginForm = () => {
 
                 <GridContainer style={{ justifyContent: "center" }} >
 
-                    {/*this need a refactor later*/}
                     {
-                        formState.errors.email || formState.errors.password ?
+                        formState.errors.email || formState.errors.password || user.error ?
                             <ErrorWrapper>
                                 {
                                     formState.errors.email ?
-                                        <ErrorMessage>*{formState.errors.email.message}</ErrorMessage>
+                                        <ErrorMessage>{formState.errors.email.message}</ErrorMessage>
                                         :
                                         null
                                 }
 
                                 {
                                     formState.errors.password ?
-                                        <ErrorMessage>*{formState.errors.password.message}</ErrorMessage>
+                                        <ErrorMessage>{formState.errors.password.message}</ErrorMessage>
+                                        :
+                                        null
+                                }
+
+                                {
+                                    user.error ?
+                                        <ErrorMessage>*Usuario o contraseña incorrectos</ErrorMessage>
                                         :
                                         null
                                 }

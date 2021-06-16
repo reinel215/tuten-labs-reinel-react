@@ -7,7 +7,7 @@ const validationRegister = ({ name = "" ,required = false, minLength = false, ma
     if (required) {
         register = {
             ...register,
-            required : `El cambo ${name} no puede estar vacio`
+            required : `El campo ${name} no puede estar vacio`
         }
     }
 

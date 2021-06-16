@@ -1,8 +1,21 @@
 .error-wrapper {
     width: 80%;
     text-align: center;
-    background-color: #C70039;
+    background-color: #d40000;
     padding: 5px;
     border-radius: 5px;
     opacity: 0.8;
+    animation: fadeIn 0.3s linear;
+}
+
+
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }
