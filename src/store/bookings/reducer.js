@@ -4,7 +4,7 @@ import {
     SET_BOOKINGS
 } from "./types";
 
-const initialState = {
+export const initialState = {
     loading: false,
     bookings: null,
     error: null

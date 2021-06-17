@@ -7,7 +7,7 @@ import {
     SET_USER
 } from "./types";
 
-const initialState = {
+export const initialState = {
     loading: false,
     user: jsCookie.getJSON(cookie) ?
     jsCookie.getJSON(cookie) :
