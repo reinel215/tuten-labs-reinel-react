@@ -28,9 +28,6 @@ const BookingSearch = () => {
         dispatch(bookingActions.getBookings({ email: data.email, adminEmail: user.user.email, current: true }));
     }
 
-
-    console.log(formState.errors);
-
     return (
         <Paper style={{ width: "60%", minWidth: 300 }} >
             <PaperTitle>Booking</PaperTitle>
@@ -72,7 +69,7 @@ const BookingSearch = () => {
 
                             {
                                 booking.error ?
-                                    <ErrorMessage>*Usuario o contraseña incorrectos</ErrorMessage>
+                                    <ErrorMessage>*Ocurrio un error buscando los datos</ErrorMessage>
                                     :
                                     null
                             }

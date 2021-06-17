@@ -1,5 +1,15 @@
+@import "../../../../scss/inputs.scss";
+@import "../../../../scss/colors.scss";
+
 .input-text {
-    padding: 8px;
-    width: 100%;
-    box-sizing: border-box;
+    @include basic-input;
+}
+
+.border {
+    @include border-animation(".input-text", $primary );
+}
+
+
+.text-input-wrapper{
+    @include input-wrapper;
 }

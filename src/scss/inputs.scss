@@ -1,0 +1,71 @@
+@mixin basic-input {
+    padding: 8px;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+
+    &:focus {
+        outline: none;
+    }
+}
+
+@mixin border-animation($focus-of-who, $border-color : black) {
+    
+    &::after {
+        content: "";
+        position: absolute;
+        border-top: 2px solid $border-color;
+        border-left: 2px solid $border-color;
+        top: 0;
+        left: 0;
+        height: 0;
+        width: 0;
+        transition: width 0.4s, height 0.4s, opacity 0.4s;
+        box-sizing: border-box;
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    &::before {
+        content: "";
+        position: absolute;
+        border-bottom: 2px solid $border-color;
+        border-right: 2px solid $border-color;
+        bottom: 0;
+        right: 0;
+        height: 0;
+        width: 0;
+        transition: width 0.4s, height 0.4s, opacity 0.4s;
+        box-sizing: border-box;
+        opacity: 0;
+        pointer-events: none;
+
+    }
+
+
+    #{$focus-of-who}:focus
+    ~ &::after
+    {
+        width: 100%;
+        height: 100%;
+        opacity: 1;
+    }
+
+
+    #{$focus-of-who}:focus
+    ~ &::before
+    {
+        width: 100%;
+        height: 100%;
+        opacity: 1;
+    }
+}
+
+
+
+@mixin input-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}

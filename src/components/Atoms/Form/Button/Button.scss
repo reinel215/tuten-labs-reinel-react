@@ -1,6 +1,8 @@
+@import "../../../../scss/colors.scss";
+
 .button {
     padding: 10px;
-    background-color: #102e91;
+    background-color: $primary;
     color: white;
     border: none;
     font-family: 'Roboto', sans-serif;
@@ -17,5 +19,5 @@
 
 .button[disabled] {
     cursor: default;
-    background-color: #3f4f83;
+    background-color: $light-primary;
 }

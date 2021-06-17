@@ -2,13 +2,16 @@ import React from 'react';
 
 import "./InputPassword.scss"
 
-const InputPassword = ({...props}) => {
+const InputPassword = ({ ...props }) => {
     return (
-        <input
-            {...props}
-            type="password"
-            className="input-password"
-        />
+        <div className="password-input-wrapper" >
+            <input
+                {...props}
+                type="password"
+                className="input-password"
+            />
+            <span className="border-password" ></span>
+        </div>
     )
 }
 
